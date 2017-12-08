@@ -1,3 +1,19 @@
 ---
+- name: check if yii framework version is installed
+  stat:
+    path: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}"
+  register: yii_console
 
+- name: install yii
+  unarchive:
+    src: "{{ yii_download_url }}/{{ yii_version }}/yii-{{ yii_version }}.{{ yii_hash }}.tar.gz"
+    dest: "{{ yii_dest }}/"
+    copy: no
+  when: yii_console.stat.exists == False
+
+- name: remove lines
+  replace:
+    dest: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}/framework/test/CTestCase.php "
+    regexp: ^(require_once.*)
+    replace: //\1
 ...
