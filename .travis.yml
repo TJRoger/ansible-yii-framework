@@ -6,6 +6,7 @@ sudo: required
 env:
   - ANSIBLE_VERSION=latest VERSION=1.1.19 HASH=5790cb
   - ANSIBLE_VERSION=2.0.1.0 VERSION=1.1.19 HASH=5790cb
+  - ANSIBLE_VERSION=2.0.1.0 VERSION=1.1.15 HASH=022a51
 
 # Install ansible
 addons:
@@ -25,14 +26,19 @@ install:
 
 script:
   # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --connection=local --syntax-check
+  - >
+    ansible-playbook tests/test.yml -i tests/inventory --connection=local --syntax-check
+    --extra-vars "version=$VERSION hash=$HASH"
 
   # Run the role
-  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --extra-vars "version=$VERSION hash=$HASH"
+  - >
+    ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    --extra-vars "version=$VERSION hash=$HASH"
 
   # Idempotent test
   - >
     ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    --extra-vars "version=$VERSION hash=$HASH"
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
