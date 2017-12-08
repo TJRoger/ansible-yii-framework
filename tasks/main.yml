@@ -13,7 +13,9 @@
 
 - name: remove lines
   replace:
-    dest: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}/framework/test/CTestCase.php "
+    dest: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}/framework/test/CTestCase.php"
     regexp: ^(require_once.*)
     replace: //\1
+
+- name:
 ...

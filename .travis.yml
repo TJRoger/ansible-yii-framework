@@ -7,6 +7,12 @@ env:
   - ANSIBLE_VERSION=2.0.1.0
   - ANSIBLE_VERSION=latest
 
+matrix:
+  include:
+    - env:
+      - VERSION=1.1.19
+      - HASH=5790cb
+
 # Install ansible
 addons:
   apt:
@@ -28,7 +34,14 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory --connection=local --syntax-check
 
   # Run the role
-  - ansible-playbook -i tests/inventory tests/test.yml --connection=local
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --extra-vars "version=$VERSION hash=$HASH"
+
+  # Idempotent test
+  - >
+    ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
