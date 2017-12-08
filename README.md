@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thomaslorentsen/ansible-yii-framework.svg?branch=master)](https://travis-ci.org/roundpartner/ansible-yii-framework)
+[![Build Status](https://travis-ci.org/thomaslorentsen/ansible-yii-framework.svg?branch=master)](https://travis-ci.org/thomaslorentsen/ansible-yii-framework)
 
 # Yii framework
 Install Yii Framework with Ansible
