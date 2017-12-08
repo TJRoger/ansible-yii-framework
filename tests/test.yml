@@ -1,5 +1,5 @@
 ---
 - hosts: localhost
   roles:
-    - {role: ansible-yii-framework, yii_dest: ~, yii_version: "{{ version }}", yii_hash: "{{ hash }}"}
+    - {role: ansible-yii-framework, yii_dest: ~/, yii_version: "{{ version }}", yii_hash: "{{ hash }}"}
 ...

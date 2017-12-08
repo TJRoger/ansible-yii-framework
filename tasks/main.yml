@@ -11,7 +11,7 @@
     copy: no
   when: yii_console.stat.exists == False
 
-- name: remove lines
+- name: remove lines from test
   replace:
     dest: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}/framework/test/CTestCase.php"
     regexp: ^(require_once.*)
