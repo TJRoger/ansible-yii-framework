@@ -4,7 +4,7 @@
     path: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}"
   register: yii_console
 
-- include: install.yml
+- import_tasks: install.yml
   when: yii_console.stat.exists == False
 
 - name: link yii to folder
