@@ -4,8 +4,8 @@ python: "2.7"
 sudo: required
 
 env:
-  - VERSION=1.1.19 HASH=5790cb
-  - VERSION=1.1.15 HASH=022a51
+  - ANSIBLE_VERSION=latest VERSION=1.1.19 HASH=5790cb
+  - ANSIBLE_VERSION=latest VERSION=1.1.15 HASH=022a51
 
 # Install ansible
 addons:
