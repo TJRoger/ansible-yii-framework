@@ -10,6 +10,6 @@
 - name: link yii to folder
   file:
     dest: "{{ yii_dest }}/yii"
-    src: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}"
+    src: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}/yii"
     state: link
 ...
