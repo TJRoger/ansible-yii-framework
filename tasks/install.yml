@@ -1,13 +1,14 @@
 ---
 - name: install yii
   unarchive:
-    src: "{{ yii_download_url }}/{{ yii_version }}/yii-{{ yii_version }}.{{ yii_hash }}.tar.gz"
+    src: "{{ yii_download_url }}/{{ yii_version }}/yii-basic-app-{{ yii_version }}.tgz"
     dest: "{{ yii_dest }}/"
     copy: no
 
-- name: remove lines from test
-  replace:
-    dest: "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}/framework/test/CTestCase.php"
-    regexp: ^(require_once.*)
-    replace: //\1
+- name: stat yii
+  stat: path="{{ yii_dest }}/basic"
+  register: yii_stat
+
+- name: move yii
+  command: mv "{{ yii_dest }}/basic" "{{ yii_dest }}/yii-{{ yii_version }}.{{ yii_hash }}"
 ...

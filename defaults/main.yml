@@ -1,6 +1,6 @@
 ---
-yii_download_url: "https://github.com/yiisoft/yii/releases/download"
-yii_version: "1.1.22"
-yii_hash: "bf1d26e"
+yii_download_url: "https://github.com/yiisoft/yii2/releases/download"
+yii_version: "2.0.35"
+yii_hash: "60a3965"
 yii_dest: /opt
 ...

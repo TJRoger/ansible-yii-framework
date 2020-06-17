@@ -1,5 +1,5 @@
 galaxy_info:
-  author: Tom Lorentsen
+  author: Tom Lorentsen, Roger Luo
   description: Install Yii Framework
   company: RoundPartner
 
@@ -131,9 +131,9 @@ galaxy_info:
   #  - 9.1
   #  - 9.2
   #  - 9.3
-  #- name: Ubuntu
-  #  versions:
-  #  - all
+  - name: Ubuntu
+    versions:
+    - all
   #  - artful
   #  - lucid
   #  - maverick
@@ -150,9 +150,9 @@ galaxy_info:
   #  - xenial
   #  - yakkety
   #  - zesty
-  - name: Debian
-    versions:
-    - all
+  # - name: Debian
+  #   versions:
+  #   - all
   #  - etch
   #  - jessie
   #  - lenny

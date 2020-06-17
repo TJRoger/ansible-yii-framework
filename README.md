@@ -10,5 +10,5 @@ Install the latest version
 ```
 Install a different version
 ```yaml
-- {role: ansible-yii-framework, yii_version: "1.1.15", yii_hash: "022a51"}
+- {role: ansible-yii-framework, yii_version: "2.0.35", yii_hash: "60a3965"}
 ```
